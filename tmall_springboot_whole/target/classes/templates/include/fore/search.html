@@ -1,0 +1,22 @@
+<!-- 妯′豢澶╃尗鏁寸珯springboot 鏁欑▼ 涓篽ow2j.cn 鐗堟潈鎵�鏈�-->
+<!-- 鏈暀绋嬩粎鐢ㄤ簬瀛︿範浣跨敤锛屽垏鍕跨敤浜庨潪娉曠敤閫旓紝鐢辨寮曡捣涓�鍒囧悗鏋滀笌鏈珯鏃犲叧-->
+<!-- 渚涜喘涔拌�呭涔狅紝璇峰嬁绉佽嚜浼犳挱锛屽惁鍒欒嚜琛屾壙鎷呯浉鍏虫硶寰嬭矗浠�-->
+
+<div class th:fragment="html">
+    <a th:href="${application.contextPath}">
+        <img id="logo" src="img/site/logo.gif" class="logo">
+    </a>
+    <form action="search" method="get" >
+        <div class="searchDiv">
+            <input name="keyword" type="text" placeholder="Male shoes">
+            <button  type="submit" class="searchButton">Search</button>
+            <div class="searchBelow">
+				<span th:each="c,status: ${application.categories_below_search}" th:if="${status.index>=5 && status.index<=8}">
+					<a th:href="@{'category?cid='+${c.id}}" th:text="${c.name}" ></a>
+					<span th:if="${status.index!=8}">|</span>
+	            </span>
+
+            </div>
+        </div>
+    </form>
+</div>
